@@ -103,3 +103,6 @@ async def get_data(code: str):
         raise HTTPException(status_code=500, detail=f"Error retrieving data: {str(e)}")
 
 
+@app.get("/ping")
+def ping():
+    return {"status": "alive"}

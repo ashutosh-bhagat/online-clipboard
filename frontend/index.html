@@ -156,6 +156,7 @@
 
   <script>
     let currentCode = '';
+    const BACKEND_URL = "https://clipy-clipboard.onrender.com";
 
         async function upload(event) {
       if (event) event.preventDefault();
@@ -174,7 +175,7 @@
         if (text && !file) {
           // Upload text via JSON
           console.log('Uploading text:', text);
-          response = await fetch("http://127.0.0.1:8000/upload_text", {
+          response = await fetch(`${BACKEND_URL}/upload_text`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -188,7 +189,7 @@
           formData.append("file", file);
           
           
-          response = await fetch("http://127.0.0.1:8000/upload", {
+          response = await fetch(`${BACKEND_URL}/upload`, {
             method: "POST",
             body: formData
           });
@@ -227,7 +228,7 @@
       }
 
       try {
-        const response = await fetch(`http://127.0.0.1:8000/get/${code}`);
+        const response = await fetch(`${BACKEND_URL}/get/${code}`);
 
         if (response.ok) {
           const contentType = response.headers.get("Content-Type");
@@ -314,13 +315,13 @@
     // Test connection on page load
     window.addEventListener('load', function() {
       console.log('Page loaded, testing backend connection...');
-      fetch('http://127.0.0.1:8000/docs')
+      fetch(`${BACKEND_URL}/docs`)
         .then(response => {
           console.log('Backend is reachable:', response.status);
         })
         .catch(error => {
           console.error('Backend connection failed:', error);
-          alert('Cannot connect to backend. Make sure it\'s running on http://127.0.0.1:8000');
+          alert('Cannot connect to backend. Make sure it\'s running on `${BACKEND_URL}');
         });
     });
   </script>

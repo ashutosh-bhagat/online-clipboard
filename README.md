@@ -163,28 +163,6 @@ function newFeature() {
 }
 ```
 
-## 🚀 Deployment
-
-### Option 1: Railway (Recommended - Easiest)
-
-1. **Fork this repository** to your GitHub account
-2. **Sign up** at [Railway](https://railway.app/)
-3. **Create new project** and connect your repository
-4. **Deploy** - Railway will automatically detect and deploy
-
-### Option 2: Render
-
-1. **Sign up** at [Render](https://render.com/)
-2. **Create new Web Service**
-3. **Connect your repository**
-4. **Set build command:** `pip install -r backend/requirements.txt`
-5. **Set start command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
-
-### Option 3: Vercel (Frontend Only)
-
-1. **Deploy frontend** to Vercel
-2. **Update `BACKEND_URL`** in `frontend/index.html`
-3. **Deploy backend** separately (Railway/Render)
 
 ### Environment Variables
 
@@ -276,4 +254,4 @@ If you encounter any issues:
 
 ---
 
-**Made with ❤️ for easy file sharing** 
+**Made with ❤️ from Ashutosh** 
